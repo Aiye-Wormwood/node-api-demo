@@ -1,0 +1,17 @@
+例子：逐行地读取文件流#
+
+查看英文版  参与翻译
+
+例子，从一个文件系统可读流中每次一行地消耗输入：
+
+const readline = require('readline');
+const fs = require('fs');
+
+const rl = readline.createInterface({
+  input: fs.createReadStream('sample.txt'),
+  crlfDelay: Infinity
+});
+
+rl.on('line', (line) => {
+  console.log(`文件的单行内容：${line}`);
+});
